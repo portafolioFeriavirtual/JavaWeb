@@ -6,6 +6,7 @@
 <title
 	th:text="'Spring Boot: MVC + Thymeleaf + Data JPA - ' + ${titulo}"></title>
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/mystyle.css}" />
 </head>
 <body>
 	<header th:fragment="header">
@@ -23,6 +24,16 @@
 					</a></li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/listar}">Clientes</a>
 					</li>
+			
+			
+			
+				<li class="nav-item"><a class="nav-link" th:href="@{/listar}">Contratos Cliente</a>
+					</li>
+					
+						<li class="nav-item"><a class="nav-link" th:href="@{/listar}">Contratos Productores</a>
+					</li>
+			
+			
 				</ul>
 
 				<ul class="navbar-nav ml-auto">

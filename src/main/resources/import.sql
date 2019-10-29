@@ -40,3 +40,19 @@ INSERT INTO authorities (user_id, authority) VALUES (1, 'ROLE_USER');
 INSERT INTO authorities (user_id, authority) VALUES (2, 'ROLE_ADMIN');
 INSERT INTO authorities (user_id, authority) VALUES (2, 'ROLE_USER');
 
+
+/* Creamos Productos */
+INSERT INTO productos (nombre, precio, create_at) VALUES ('Manzanas', 740000, 	NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES ('Peras', 720000,   	NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES ('Uva', 540000,     	NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES ('Guindas', 840000, 	NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES ('Naranjas', 440000,	NOW());
+
+/* Creamos Estados 
+INSERT INTO estados (id, nombre) VALUES (1, 'PROCESO');
+INSERT INTO estados (id, nombre) VALUES (2, 'TRANSITO');
+INSERT INTO estados (id, nombre) VALUES (3, 'RECHAZADO');
+INSERT INTO estados (id, nombre) VALUES (4, 'VENTA');
+*/
+
+
