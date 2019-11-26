@@ -55,6 +55,20 @@ public class Pedido implements Serializable {
 
 	
     	
+	public Estado getEstado() {
+		return estado;
+	}
+
+
+
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+
+
+
 	public Pedido() {
       this.items = new ArrayList<ItemPedido>();
 	}

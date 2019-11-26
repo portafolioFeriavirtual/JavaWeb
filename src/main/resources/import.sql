@@ -1,12 +1,6 @@
 /* Populate tables */
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Andres', 'Guzman', 'profesor@bolsadeideas.com', '2017-08-01');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('John', 'Doe', 'john.doe@gmail.com', '2017-08-02');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Linus', 'Torvalds', 'linus.torvalds@gmail.com', '2017-08-03');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Jane', 'Doe', 'jane.doe@gmail.com', '2017-08-04');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Rasmus', 'Lerdorf', 'rasmus.lerdorf@gmail.com', '2017-08-05');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Erich', 'Gamma', 'erich.gamma@gmail.com', '2017-08-06');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Richard', 'Helm', 'richard.helm@gmail.com', '2017-08-07');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Ralph', 'Johnson', 'ralph.johnson@gmail.com', '2017-08-08');
+
+INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Ralph', 'Johnson', ' 3 toneladas de manzanas', '2017-08-08');
 INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('John', 'Vlissides', 'john.vlissides@gmail.com', '2017-08-09');
 INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('James', 'Gosling', 'james.gosling@gmail.com', '2017-08-010');
 INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Bruce', 'Lee', 'bruce.lee@gmail.com', '2017-08-11');
@@ -42,17 +36,24 @@ INSERT INTO authorities (user_id, authority) VALUES (2, 'ROLE_USER');
 
 
 /* Creamos Productos */
-INSERT INTO productos (nombre, precio, create_at) VALUES ('Manzanas', 740000, 	NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES ('Manzanas', 200, 	NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES ('Peras', 720000,   	NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES ('Uva', 540000,     	NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES ('Guindas', 840000, 	NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES ('Naranjas', 440000,	NOW());
 
-/* Creamos Estados 
+/* Creamos Estados */
 INSERT INTO estados (id, nombre) VALUES (1, 'PROCESO');
 INSERT INTO estados (id, nombre) VALUES (2, 'TRANSITO');
 INSERT INTO estados (id, nombre) VALUES (3, 'RECHAZADO');
 INSERT INTO estados (id, nombre) VALUES (4, 'VENTA');
-*/
+
+
+/* Creamos Pedido */
+INSERT INTO pedidos (fecha_inicio_pedido, fecha_termino_pedido , descripcion , observacion , cliente_id , estado_id ) VALUES (NOW() , NOW() , 'manazanas' , 'se necesitan 3 toneladas', 1, 2 );
+INSERT INTO detalle_pedidos (cantidad, producto_id, pedido_id) VALUES (2, 1 , 1);
+
+
+
 
 

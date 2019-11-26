@@ -10,6 +10,11 @@
 		<div class="card bg-light">
 			<div class="card-header" th:text="${titulo}"></div>
 			<div class="card-body">
+				<h4 class="card-title">
+						<a class="btn btn-success btn-xs" th:href="@{'/pedido/form/' + ${cliente.id}}" th:text="'Crear pedido'"></a>
+				</h4>
+		
+			
 				<ul class="list-group">
 					<li class="list-group-item" th:text="${cliente.nombre}"></li>
 					<li class="list-group-item" th:text="${cliente.apellido}"></li>
@@ -17,6 +22,43 @@
 					<li class="list-group-item" th:text="${cliente.createAt}"></li>
 
 				</ul>
+		<div th:if="${#lists.isEmpty(cliente.pedidos)}" class="alert alert-info my-4" th:text="'No hay pedidos para este cliente ' + ${cliente.nombre} + '  ' +  ${cliente.apellido}"></div>
+				<table th:if="${not #lists.isEmpty(cliente.pedidos)}" class="table table-bordered table-spriped my-4" >
+
+					<thead class="thead-inverse">
+						<tr>
+							<th>id Pedido</th>
+							<th>descripcion</th>
+							<th>observacion</th>
+							<th>fecha de inicio </th>
+							<th>fecha de termino </th>
+							
+							<th>estado</th>
+							<th>total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="pedido: ${cliente.pedidos}">
+							<td th:text="${pedido.id}"></td>
+							<td th:text="${pedido.descripcion}"></td>
+							<td th:text="${pedido.observacion}"></td>
+							<td th:text="${pedido.createAt}"></td>
+							<td th:text="${pedido.createFin}"></td>
+				
+							<td th:text="${pedido.total}"></td>
+
+						</tr>
+
+
+					</tbody>
+
+
+
+
+
+				</table>
+
+
 
 			</div>
 
