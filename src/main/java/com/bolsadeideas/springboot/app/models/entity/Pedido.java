@@ -56,6 +56,7 @@ public class Pedido implements Serializable {
 	
     	
 	public Estado getEstado() {
+		  
 		return estado;
 	}
 
@@ -95,8 +96,9 @@ public class Pedido implements Serializable {
 		createAt = new Date();
 	}
 	
-
-
+	/*
+	 * @PrePersist public void prePresiscrefin() { createFin = new Date(); }
+	 */
 
 	public Long getId() {
 		return id;

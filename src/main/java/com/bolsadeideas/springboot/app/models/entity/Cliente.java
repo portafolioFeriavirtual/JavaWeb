@@ -37,8 +37,13 @@ public class Cliente implements Serializable {
 	private String apellido;
 	
 	@NotEmpty
+	private String solicitud;
+	
+	@NotEmpty
 	@Email
 	private String email;
+
+	
 
 	@NotNull
 	@Column(name = "create_at")
@@ -55,7 +60,13 @@ public class Cliente implements Serializable {
 	    pedidos = new ArrayList<>();
 	} 
 
-	
+	public String getSolicitud() {
+		return solicitud;
+	}
+
+	public void setSolicitud(String solicitud) {
+		this.solicitud = solicitud;
+	}
 	
 	public Long getId() {
 		return id;

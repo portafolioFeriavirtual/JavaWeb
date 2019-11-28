@@ -3,8 +3,7 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
 <meta charset="UTF-8" />
-<title
-	th:text="'Spring Boot: MVC + Thymeleaf + Data JPA - ' + ${titulo}"></title>
+<title th:text="'Feria Virtual ' + ${titulo}"></title>
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
 <link rel="stylesheet" th:href="@{/css/mystyle.css}" />
@@ -13,7 +12,7 @@
 <body>
 	<header th:fragment="header">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">Spring Boot</a>
+			<a class="navbar-brand" href="#">Feria Virtual</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -26,16 +25,16 @@
 					</a></li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/listar}">Clientes</a>
 					</li>
-			
-			
-			
-				<li class="nav-item"><a class="nav-link" th:href="@{/listar}">Contratos Cliente</a>
-					</li>
-					
-						<li class="nav-item"><a class="nav-link" th:href="@{/listar}">Contratos Productores</a>
-					</li>
-			
-			
+
+
+
+					<li class="nav-item"><a class="nav-link" th:href="@{/listar}">Contratos
+							Cliente</a></li>
+
+					<li class="nav-item"><a class="nav-link" th:href="@{/listar}">Contratos
+							Productores</a></li>
+
+
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
@@ -75,23 +74,21 @@
 			th:text="${warning}"></div>
 		<div class="alert alert-info" th:if="${info != null}"
 			th:text="${info}"></div>
-		
+
 		<div class="alert alert-success">
-				<p sec:authorize="isAuthenticated()">
-			Hola   <span sec:authentication="name">
-			
-		</p>
-		</div>		
-			
-			
-			
-			
-			
-	
+			<p sec:authorize="isAuthenticated()">
+				Hola <span sec:authentication="name">
+			</p>
+		</div>
+
+
+
+
+
+
 	</header>
 
-	<div class="container">
-	</div>
+	<div class="container"></div>
 
 	<footer th:fragment="footer" class="container">
 		<hr />
@@ -114,7 +111,7 @@
 		<script th:src="@{/js/popper.min.js}"></script>
 		<script th:src="@{/js/bootstrap.min.js}"></script>
 		<script th:src="@{/js/jquery-ui.min.js}"></script>
-		
+
 	</footer>
 </body>
 </html>

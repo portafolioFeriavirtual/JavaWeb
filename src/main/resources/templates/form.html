@@ -18,7 +18,7 @@
 				</div>
 				<form th:action="@{/form}" th:object="${cliente}" method="post">
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Nombre</label>
+						<label class="col-sm-2 col-form-label">Nombre de la Empresa</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{nombre}" class="form-control"
 								th:errorclass="'form-control alert-danger'" /> <small
@@ -27,7 +27,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Apellido</label>
+						<label class="col-sm-2 col-form-label">Representante Legal</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{apellido}" class="form-control"
 								th:errorclass="'form-control alert-danger'" /> <small
@@ -35,8 +35,20 @@
 								th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
 						</div>
 					</div>
+						<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Solicitud de Pedido</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{solicitud}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('solicitud')}" th:errors="*{solicitud}"></small>
+						</div>
+					</div>
+					
+					
+					
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Email</label>
+						<label class="col-sm-2 col-form-label">Email Corporativo</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{email}" class="form-control"
 								th:errorclass="'form-control alert-danger'" /> <small
@@ -45,7 +57,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Fecha</label>
+						<label class="col-sm-2 col-form-label">Fecha del contrato</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" th:field="*{createAt}"
 								th:errorclass="'form-control alert-danger'" /> <small
