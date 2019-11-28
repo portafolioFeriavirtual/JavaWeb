@@ -49,7 +49,7 @@ public class PedidoController {
 		pedido.setCliente(cliente);
 		
 		model.put("pedido", pedido);
-		model.put("titulo", "crear porte");
+		model.put("titulo", "Crear aPorte");
 		
 		return "pedido/form";
 	}
@@ -79,7 +79,7 @@ public class PedidoController {
 		}
        clienteService.savePedido(pedido);
        status.setComplete();
-       flash.addAttribute("success", "PEdido Creado con exito");   
+       flash.addAttribute("success", "Pedido Creado con exito");   
     	 return "redirect:/ver/" + pedido.getCliente().getId();
      }
 

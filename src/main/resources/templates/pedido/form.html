@@ -22,10 +22,18 @@
 
 
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" th:text="'cliente'"></label>
+						<label class="col-sm-2 col-form-label" th:text="'Empresa'"></label>
 						<div class="col-sm-6">
 							<input
 								th:value="${pedido.cliente.nombre} + '  ' + ${pedido.cliente.apellido}"
+								disabled="disabled" class="form-control">
+						</div>
+					</div>
+						<div class="form-group row">
+						<label class="col-sm-2 col-form-label" th:text="'Solicitud'"></label>
+						<div class="col-sm-6">
+							<input
+								th:value="${pedido.cliente.solicitud}"
 								disabled="disabled" class="form-control">
 						</div>
 					</div>

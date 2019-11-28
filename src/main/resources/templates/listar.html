@@ -30,7 +30,7 @@
 						    <th>Correo</th>
 							<th>Fecha</th>
 							<th>Estado</th>
-							<th>Crear pedido</th>
+							<th>Agregar Aporte</th>
 							<th sec:authorize="hasRole('ROLE_ADMIN')">editar</th>
 							<th sec:authorize="hasRole('ROLE_ADMIN')">eliminar</th>
 							
@@ -45,7 +45,7 @@
 							<td th:text="${cliente.email}"></td>
 							<td th:text="${cliente.createAt}"></td>
 							<td> <a class="btn btn-success btn-sm"  th:text="'Proceso'"></a></td>
-								<td> <a class="btn btn-primary btn-sm" th:href="@{'/pedido/form/' + ${cliente.id}}" th:text="'Crear pedido'"></a></td>
+								<td> <a class="btn btn-primary btn-sm" th:href="@{'/pedido/form/' + ${cliente.id}}" th:text="'Crear Aporte'"></a></td>
 							<td><a sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-primary btn-sm"
 								th:href="@{/form/} + ${cliente.id}" th:text="'editar'"></a></td>
 							<td><a sec:authorize="hasRole('ROLE_ADMIN')"

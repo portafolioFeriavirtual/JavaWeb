@@ -34,6 +34,7 @@ INSERT INTO productos (nombre, precio, create_at) VALUES ('Peras', 720000,   	NO
 INSERT INTO productos (nombre, precio, create_at) VALUES ('Uva', 540000,     	NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES ('Guindas', 840000, 	NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES ('Naranjas', 440000,	NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES ('Tomate', 10.000,	NOW());
 
 /* Creamos Estados */
 INSERT INTO estados (id, nombre) VALUES (1, 'PROCESO');
