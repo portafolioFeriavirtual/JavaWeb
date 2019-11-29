@@ -34,10 +34,6 @@ public class ContratoProducto implements Serializable {
 	@JoinColumn(name = "productor_id")
     private Productor productor;
 	
-
-	
-	
-	
 	
 	public Productor getProductor() {
 		return productor;

@@ -8,9 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,10 +19,16 @@ public class Productor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
 	public String nombre;
+	public String estado;
 	
 
 	
-	
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 	public Long getId() {
 		return id;
 	}

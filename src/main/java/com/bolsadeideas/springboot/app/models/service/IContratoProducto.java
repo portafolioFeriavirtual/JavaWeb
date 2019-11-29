@@ -18,4 +18,6 @@ public interface IContratoProducto {
 	
 	public void save(ContratoProducto ContratoProducto);
 	
+	
+	
 }
