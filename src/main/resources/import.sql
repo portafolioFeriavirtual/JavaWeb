@@ -50,4 +50,3 @@ INSERT INTO detalle_pedidos (cantidad, producto_id, pedido_id) VALUES (2, 1 , 1)
 
 
 
-

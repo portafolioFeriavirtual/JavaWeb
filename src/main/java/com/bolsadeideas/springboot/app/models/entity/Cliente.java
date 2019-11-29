@@ -39,11 +39,23 @@ public class Cliente implements Serializable {
 	@NotEmpty
 	private String solicitud;
 	
+	
+	@NotEmpty
+	private String direccionEntrega;
+	
 	@NotEmpty
 	@Email
 	private String email;
 
 	
+
+	public String getDireccionEntrega() {
+		return direccionEntrega;
+	}
+
+	public void setDireccionEntrega(String direccionEntrega) {
+		this.direccionEntrega = direccionEntrega;
+	}
 
 	@NotNull
 	@Column(name = "create_at")

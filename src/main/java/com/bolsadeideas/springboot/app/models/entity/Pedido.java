@@ -31,6 +31,7 @@ public class Pedido implements Serializable {
 	public Long id;
 
 	public String descripcion;
+	
 	public String observacion;
 
 	@Temporal(TemporalType.DATE)
