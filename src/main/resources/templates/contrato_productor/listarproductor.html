@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head   th:replace="layout/layout  :: head"></head>
+<header th:replace="layout/layout  :: header"></header>
+<body>
+
+
+
+		
+
+	<div class="container py-4">
+
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			
+		 	<div class="card-body">
+
+				<h4 class="card-title">
+					<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/form}" class="btn btn-primary">Crear Contrato</a>
+				</h4>
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>Empresa</th>
+							<th>Estado</th>
+							<th>Solicitud</th>
+						    <th>Correo</th>
+							<th>Fecha</th>
+							<th>Estado</th>
+							<th>Agregar Aporte</th>
+							<th sec:authorize="hasRole('ROLE_ADMIN')">editar</th>
+							<th sec:authorize="hasRole('ROLE_ADMIN')">eliminar</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="productors: ${productor}">
+							<td><a class="btn btn-primary btn-xs" th:href="@{/ver/} + ${productors.id}" th:text="${productors.id}"></a></td>
+							<td th:text="${productors.nombre_productor}"></td>
+						    <td th:text="${productors.estado}"></td>
+				
+						</tr>
+					</tbody>
+
+				</table>
+				<nav th:replace="paginator-nav :: paginator"></nav>
+			</div> 
+		</div>
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

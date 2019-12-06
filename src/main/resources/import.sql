@@ -49,4 +49,21 @@ INSERT INTO detalle_pedidos (cantidad, producto_id, pedido_id) VALUES (2, 1 , 1)
 
 
 
+/* Creamos Productor */
+INSERT INTO productores (estado , nombre_productor) VALUES ('activo', 'Manzanas 6');
+INSERT INTO productores (estado , nombre_productor) VALUES ('activo', 'Aguindas S.A');
+INSERT INTO productores (estado , nombre_productor) VALUES ('activo', 'La Vega S.A');
+INSERT INTO productores (estado , nombre_productor) VALUES ('activo', 'La Vega S.A');
+INSERT INTO productores (estado , nombre_productor) VALUES ('activo', 'La Vega S.A');
+INSERT INTO productores (estado , nombre_productor) VALUES ('activo', 'La Vega S.A');
+/* Creamos Contrato  Productor */
+
+INSERT INTO contrato_productores (acuerdo ,create_af ,create_at ,productor_id) VALUES ('Starferia'     ,NOW(), NOW(),1 );
+INSERT INTO contrato_productores (acuerdo ,create_af ,create_at ,productor_id) VALUES ('Starferia'      ,NOW(), NOW(),2 );
+INSERT INTO contrato_productores (acuerdo ,create_af ,create_at ,productor_id) VALUES ('Starferia'      ,NOW(), NOW(),3 );
+INSERT INTO contrato_productores (acuerdo ,create_af ,create_at ,productor_id) VALUES ('Starferia'      ,NOW(), NOW(),4 );
+INSERT INTO contrato_productores (acuerdo ,create_af ,create_at ,productor_id) VALUES ('Starferia'      ,NOW(), NOW(),5 );
+
+
+
 

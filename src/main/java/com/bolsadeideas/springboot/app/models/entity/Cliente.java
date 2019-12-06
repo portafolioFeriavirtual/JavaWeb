@@ -32,22 +32,19 @@ public class Cliente implements Serializable {
 
 	@NotEmpty
 	private String nombre;
-	
+
 	@NotEmpty
 	private String apellido;
-	
+
 	@NotEmpty
 	private String solicitud;
-	
-	
+
 	@NotEmpty
 	private String direccionEntrega;
-	
+
 	@NotEmpty
 	@Email
 	private String email;
-
-	
 
 	public String getDireccionEntrega() {
 		return direccionEntrega;
@@ -60,17 +57,15 @@ public class Cliente implements Serializable {
 	@NotNull
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
-	
-	@OneToMany(mappedBy ="cliente" ,fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Pedido> pedidos;
-	
-	
 
 	public Cliente() {
-	    pedidos = new ArrayList<>();
-	} 
+		pedidos = new ArrayList<>();
+	}
 
 	public String getSolicitud() {
 		return solicitud;
@@ -79,7 +74,7 @@ public class Cliente implements Serializable {
 	public void setSolicitud(String solicitud) {
 		this.solicitud = solicitud;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -119,9 +114,6 @@ public class Cliente implements Serializable {
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
 	}
-	
-	
-	
 
 	public List<Pedido> getPedidos() {
 		return pedidos;
@@ -130,13 +122,11 @@ public class Cliente implements Serializable {
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
-	
-	
+
 	public void addPedido(Pedido pedido) {
 		pedidos.add(pedido);
-		
+
 	}
-	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

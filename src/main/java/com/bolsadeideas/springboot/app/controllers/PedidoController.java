@@ -49,7 +49,7 @@ public class PedidoController {
 		pedido.setCliente(cliente);
 		
 		model.put("pedido", pedido);
-		model.put("titulo", "Crear aPorte");
+		model.put("titulo", "Crear Aporte");
 		
 		return "pedido/form";
 	}

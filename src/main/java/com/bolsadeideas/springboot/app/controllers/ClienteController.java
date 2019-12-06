@@ -122,7 +122,7 @@ public class ClienteController {
 			model.addAttribute("titulo", "Formulario Contrato");
 			return "form";
 		}
-		String mensajeFlash = (cliente.getId() != null) ? "Cliente editado con éxito!" : "Cliente creado con éxito!";
+		String mensajeFlash = (cliente.getId() != null) ? "Contrato editado con éxito!" : "Contrato creado con éxito!";
 
 		clienteService.save(cliente);
 		status.setComplete();
