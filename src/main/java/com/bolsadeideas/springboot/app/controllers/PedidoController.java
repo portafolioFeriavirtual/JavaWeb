@@ -22,7 +22,9 @@ import com.bolsadeideas.springboot.app.models.entity.Estado;
 import com.bolsadeideas.springboot.app.models.entity.ItemPedido;
 import com.bolsadeideas.springboot.app.models.entity.Pedido;
 import com.bolsadeideas.springboot.app.models.entity.Producto;
+import com.bolsadeideas.springboot.app.models.entity.Subasta;
 import com.bolsadeideas.springboot.app.models.service.IClienteService;
+import com.bolsadeideas.springboot.app.models.service.ISubastaService;
 
 
 @Controller
@@ -32,6 +34,9 @@ public class PedidoController {
 
 	@Autowired
 	private IClienteService clienteService;
+	
+	@Autowired
+	private ISubastaService subastaService;
 	
 	private final Logger log = LoggerFactory.getLogger(getClass());
 	
@@ -73,6 +78,23 @@ public class PedidoController {
 			linea.setProducto(producto);
 			pedido.addItemPedido(linea);
 		
+			Long idUsuario = pedido.cliente.getId();
+			
+			Subasta suBd = subastaService.findByIdCliente(idUsuario);
+			
+			if (suBd == null) {
+				Subasta su = new Subasta();
+				su.setIdCliente(idUsuario);
+				su.setMonto_transporte(100);
+				su.setNombre_transportista("hola");
+				
+				subastaService.save(su);
+
+			    
+			}
+			
+			// crear la subasta
+			
 			
 			
 			log.info("ID: " + itemId[i].toString() + " , cantidad : " + cantidad[i].toString());

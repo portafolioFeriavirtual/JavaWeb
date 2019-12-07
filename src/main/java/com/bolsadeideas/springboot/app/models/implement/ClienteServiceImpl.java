@@ -29,7 +29,6 @@ public class ClienteServiceImpl implements IClienteService {
 	private IPedidoDao pedidoDao;
 	
 	
-	
 	@Override
 	@Transactional(readOnly = true)
 	public List<Cliente> findAll() {

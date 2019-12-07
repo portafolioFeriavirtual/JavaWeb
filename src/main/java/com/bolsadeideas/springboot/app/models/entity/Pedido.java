@@ -53,6 +53,11 @@ public class Pedido implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL )
 	@JoinColumn(name = "estado_id")
 	public Estado estado;
+	
+	
+	@OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_subasta")
+	private Subasta subasta;
 
 	
     	
@@ -152,6 +157,9 @@ public class Pedido implements Serializable {
 	public void addItemPedido(ItemPedido item) {
 		this.items.add(item);
 	}
+	
+	
+	
 	
 	
 	public Double getTotal() {
