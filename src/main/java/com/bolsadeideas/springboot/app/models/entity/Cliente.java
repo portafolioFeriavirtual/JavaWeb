@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -25,7 +26,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "contratos")
 public class Cliente implements Serializable {
 
 	@Id
@@ -49,6 +50,13 @@ public class Cliente implements Serializable {
 	private String email;
 	
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "estado_id")
+	 private Estado estados;
+
+	 
+	 
+	
 	
 	public String getDireccionEntrega() {
 		return direccionEntrega;
@@ -63,6 +71,8 @@ public class Cliente implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
+
+
 
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Pedido> pedidos;
@@ -130,6 +140,20 @@ public class Cliente implements Serializable {
 	public void addPedido(Pedido pedido) {
 		pedidos.add(pedido);
 
+	}
+	
+	public int addEstado(int estados_id) {
+		int bandera = 1;
+		return bandera;
+	}
+	
+
+	public Estado getEstados() {
+		return estados;
+	}
+
+	public void setEstados(Estado estados) {
+		this.estados = estados;
 	}
 
 	public static long getSerialversionuid() {

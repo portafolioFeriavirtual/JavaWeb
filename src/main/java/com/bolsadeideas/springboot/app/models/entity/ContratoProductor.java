@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -31,17 +32,18 @@ public class ContratoProductor implements Serializable {
 
 	public String acuerdo;
 	@NotNull
-	@Column(name = "create_at")
+	@Column(name = "inicio")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	public Date inicio_contrato;
 	@NotNull
-	@Column(name = "create_af")
+	@Column(name = "fin")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	public Date fin_contrato;
    
 	@ManyToOne(fetch = FetchType.LAZY) 
+	@JoinColumn(name = "productor_id")
 	public Productor productor;
 
 	public Long getId() {

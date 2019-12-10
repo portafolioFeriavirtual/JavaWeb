@@ -50,30 +50,13 @@ public class Pedido implements Serializable {
     public List<ItemPedido> items;
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL )
-	@JoinColumn(name = "estado_id")
-	public Estado estado;
-	
-	
-	@OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_subasta")
-	private Subasta subasta;
-
+	/*
+	 * @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "id_subasta") private Subasta subasta;
+	 */
 	
     	
-	public Estado getEstado() {
-		  
-		return estado;
-	}
-
-
-
-
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
-
-
 
 
 	public Pedido() {

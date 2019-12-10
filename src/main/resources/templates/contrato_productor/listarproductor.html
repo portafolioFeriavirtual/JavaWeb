@@ -23,11 +23,15 @@
 							<th>id</th>
 							<th>Empresa</th>
 							<th>Estado</th>
-							<th>inicio</th>
-						    <th>Termino Contrato</th>
-							<th>Agregar Aporte</th>
+							<th>direccion</th>
+						    <th>Encargado</th>
+						    <th>Razon Social</th>
+						    <th>Inicio</th>
+						    <th>Termino</th>
+						    
+				
 							<th sec:authorize="hasRole('ROLE_ADMIN')">editar</th>
-							<th sec:authorize="hasRole('ROLE_ADMIN')">eliminar</th>
+						
 							
 						</tr>
 					</thead>
@@ -36,6 +40,11 @@
 							<td><a class="btn btn-primary btn-xs" th:href="@{/ver/} + ${productors.id}" th:text="${productors.id}"></a></td>
 							<td th:text="${productors.nombre_productor}"></td>
 						    <td th:text="${productors.estado}"></td>
+						    <td th:text="${productors.direccion}"></td>
+						    <td th:text="${productors.encargado}"></td>
+						   <td th:text="${productors.razonsocial}"></td>
+						   <td th:text="${productors.createAt}"></td>
+						   <td th:text="${productors.createFin}"></td>
 				
 						</tr>
 					</tbody>

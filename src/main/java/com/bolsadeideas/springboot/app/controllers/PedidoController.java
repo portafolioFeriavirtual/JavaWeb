@@ -69,7 +69,7 @@ public class PedidoController {
      public String guardar(Pedido pedido , @RequestParam(name = "item_id[]", required = false) Long [] itemId,
     		 @RequestParam(name = "cantidad[]", required = false) Integer[] cantidad,
     		 RedirectAttributes flash , SessionStatus status) {
-              int estado = 1;
+
           for (int i = 0; i < itemId.length; i++) {
 			
         	Producto producto = clienteService.findProductoById(itemId[i]);

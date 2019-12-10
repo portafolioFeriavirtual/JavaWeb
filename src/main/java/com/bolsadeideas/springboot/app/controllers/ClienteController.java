@@ -24,6 +24,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bolsadeideas.springboot.app.models.entity.Cliente;
+import com.bolsadeideas.springboot.app.models.entity.Estado;
 import com.bolsadeideas.springboot.app.models.service.IClienteService;
 import com.bolsadeideas.springboot.app.util.paginator.PageRender;
 
@@ -91,6 +92,7 @@ public class ClienteController {
 	public String crear(Map<String, Object> model) {
 
 		Cliente cliente = new Cliente();
+		cliente.addEstado(1);
 		model.put("cliente", cliente);
 		 model.put("titulo", "Formulario de Contrato"); 
 		return "form";
@@ -123,7 +125,6 @@ public class ClienteController {
 			return "form";
 		}
 		String mensajeFlash = (cliente.getId() != null) ? "Contrato editado con éxito!" : "Contrato creado con éxito!";
-
 		clienteService.save(cliente);
 		status.setComplete();
 		flash.addFlashAttribute("success", mensajeFlash);

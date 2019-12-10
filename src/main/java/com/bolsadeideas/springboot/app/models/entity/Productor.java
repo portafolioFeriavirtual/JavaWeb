@@ -2,16 +2,27 @@ package com.bolsadeideas.springboot.app.models.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+
+
 
 @Entity
 @Table(name = "productores")
@@ -25,11 +36,40 @@ public class Productor implements Serializable {
 
 	public String estado;
 
-	@OneToMany(mappedBy = "productor",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	public String direccion;
+
+	public String encargado;
+
+	public String razonsocial;
+
+
+	
+	
+	
+	@NotNull
+	@Column(name = "inicio")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	
+	
+	public Date createAt;
+	@NotNull
+	@Column(name = "termino")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	public Date createFin;
+	
+
+	@OneToMany(mappedBy = "productor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public List<ContratoProductor> contratoproductor;
 
 	public Productor() {
 		contratoproductor = new ArrayList<>();
+	}
+
+	@PrePersist
+	public void prePresiscreat() {
+		createAt = new Date();
 	}
 
 	public Long getId() {
@@ -62,6 +102,38 @@ public class Productor implements Serializable {
 
 	public void setContratoproductor(List<ContratoProductor> contratoproductor) {
 		this.contratoproductor = contratoproductor;
+	}
+	
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getEncargado() {
+		return encargado;
+	}
+
+	public void setEncargado(String encargado) {
+		this.encargado = encargado;
+	}
+
+	public String getRazonsocial() {
+		return razonsocial;
+	}
+
+	public void setRazonsocial(String razonsocial) {
+		this.razonsocial = razonsocial;
+	}
+
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
 	}
 
 	/**
