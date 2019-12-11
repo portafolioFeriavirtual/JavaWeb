@@ -10,10 +10,13 @@
 		<div class="card bg-light">
 			<div class="card-header" th:text="${titulo}"></div>
 			<div class="card-body">
-				<h4 class="card-title">
+				<h4  th:if="${cliente.estados.id == '2'}" class="card-title">
 						<a class="btn btn-success btn-xs" th:href="@{'/pedido/form/' + ${cliente.id}}" th:text="'Agregar Aporte'"></a>
 				</h4>
 		
+
+			
+			
 			
 				<ul class="list-group">
 					<li class="list-group-item" th:text="${cliente.nombre}"></li>

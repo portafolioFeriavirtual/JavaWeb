@@ -15,5 +15,7 @@ public interface IProductorService {
 	public Page<Productor> findAll(Pageable pageable);
 	
 	public void save(Productor productor);
+	
+	public Productor findOne(Long id);
 
 }

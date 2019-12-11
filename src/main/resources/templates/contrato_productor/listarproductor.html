@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head   th:replace="layout/layout  :: head"></head>
+<head th:replace="layout/layout  :: head"></head>
 <header th:replace="layout/layout  :: header"></header>
 <body>
 
@@ -10,8 +10,8 @@
 
 		<div class="card bg-light">
 			<div class="card-header" th:text="${titulo}"></div>
-			
-		 	<div class="card-body">
+
+			<div class="card-body">
 
 				<h4 class="card-title">
 					<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/form}" class="btn btn-primary">Crear Contrato</a>
@@ -23,35 +23,37 @@
 							<th>id</th>
 							<th>Empresa</th>
 							<th>Estado</th>
-							<th>direccion</th>
-						    <th>Encargado</th>
-						    <th>Razon Social</th>
-						    <th>Inicio</th>
-						    <th>Termino</th>
-						    
-				
-							<th sec:authorize="hasRole('ROLE_ADMIN')">editar</th>
-						
-							
+					<!-- 	<th>direccion</th>
+							<th>Encargado</th>
+							<th>Razon Social</th>
+							<th>Inicio</th>
+							<th>Termino</th> -->
+							<th>Nombre de usuario</th>
+
+
+							<th sec:authorize="hasRole('ROLE_PRODUCTOR')">editar</th>
+
+
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="productors: ${productor}">
-							<td><a class="btn btn-primary btn-xs" th:href="@{/ver/} + ${productors.id}" th:text="${productors.id}"></a></td>
+						<td><a class="btn btn-primary btn-xs" th:href="@{/verContratos/} + ${productors.id}" th:text="${productors.id}"></a></td>
 							<td th:text="${productors.nombre_productor}"></td>
-						    <td th:text="${productors.estado}"></td>
-						    <td th:text="${productors.direccion}"></td>
-						    <td th:text="${productors.encargado}"></td>
-						   <td th:text="${productors.razonsocial}"></td>
-						   <td th:text="${productors.createAt}"></td>
-						   <td th:text="${productors.createFin}"></td>
-				
+							<td th:text="${productors.estado}"></td>
+				<!-- 			<td th:text="${productors.direccion}"></td>
+							<td th:text="${productors.encargado}"></td>
+							<td th:text="${productors.razonsocial}"></td>
+							<td th:text="${productors.createAt}"></td>
+							<td th:text="${productors.createFin}"></td> -->
+								<td th:text="${productors.usuario.username}"></td>
+							<td><a sec:authorize="hasRole('ROLE_PRODUCTOR')" th:href="@{form_contratoproductor}" class="btn btn-primary"th:text="'Crear Aporte'"></a></td>
 						</tr>
 					</tbody>
 
 				</table>
 				<nav th:replace="paginator-nav :: paginator"></nav>
-			</div> 
+			</div>
 		</div>
 
 	</div>

@@ -3,7 +3,6 @@ package com.bolsadeideas.springboot.app.models.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,6 +17,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 @Table(name = "contrato_productores")
 @Entity
 public class ContratoProductor implements Serializable {
@@ -31,6 +31,13 @@ public class ContratoProductor implements Serializable {
 	public Long id;
 
 	public String acuerdo;
+
+	public String direccion;
+
+	public String encargado;
+
+	public String razonsocial;
+
 	@NotNull
 	@Column(name = "inicio")
 	@Temporal(TemporalType.DATE)
@@ -41,8 +48,8 @@ public class ContratoProductor implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	public Date fin_contrato;
-   
-	@ManyToOne(fetch = FetchType.LAZY) 
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "productor_id")
 	public Productor productor;
 
@@ -77,7 +84,6 @@ public class ContratoProductor implements Serializable {
 	public void setProductor(Productor productor) {
 		this.productor = productor;
 	}
-	
 
 	private static final long serialVersionUID = 1L;
 
@@ -87,6 +93,46 @@ public class ContratoProductor implements Serializable {
 
 	public void setAcuerdo(String acuerdo) {
 		this.acuerdo = acuerdo;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getEncargado() {
+		return encargado;
+	}
+
+	public void setEncargado(String encargado) {
+		this.encargado = encargado;
+	}
+
+	public String getRazonsocial() {
+		return razonsocial;
+	}
+
+	public void setRazonsocial(String razonsocial) {
+		this.razonsocial = razonsocial;
+	}
+
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+
+	public Date getCreateFin() {
+		return createFin;
+	}
+
+	public void setCreateFin(Date createFin) {
+		this.createFin = createFin;
 	}
 
 }

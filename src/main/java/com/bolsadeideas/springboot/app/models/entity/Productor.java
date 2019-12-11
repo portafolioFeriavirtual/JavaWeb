@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -36,28 +37,50 @@ public class Productor implements Serializable {
 
 	public String estado;
 
-	public String direccion;
+	/*
+	 * public String direccion;
+	 * 
+	 * public String encargado;
+	 * 
+	 * public String razonsocial;
+	 */
+	
+	@ManyToOne(fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
+	public Usuario Usuario;
 
-	public String encargado;
-
-	public String razonsocial;
-
 
 	
 	
 	
-	@NotNull
-	@Column(name = "inicio")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	
-	
-	public Date createAt;
-	@NotNull
-	@Column(name = "termino")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	public Date createFin;
+	public Usuario getUsuario() {
+		return Usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		Usuario = usuario;
+	}
+
+
+
+
+	/*
+	 * @NotNull
+	 * 
+	 * @Column(name = "inicio")
+	 * 
+	 * @Temporal(TemporalType.DATE)
+	 * 
+	 * @DateTimeFormat(pattern = "yyyy-MM-dd") public Date createAt;
+	 * 
+	 * 
+	 * @NotNull
+	 * 
+	 * @Column(name = "termino")
+	 * 
+	 * @Temporal(TemporalType.DATE)
+	 * 
+	 * @DateTimeFormat(pattern = "yyyy-MM-dd") public Date createFin;
+	 */
 	
 
 	@OneToMany(mappedBy = "productor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -67,11 +90,9 @@ public class Productor implements Serializable {
 		contratoproductor = new ArrayList<>();
 	}
 
-	@PrePersist
-	public void prePresiscreat() {
-		createAt = new Date();
-	}
-
+	/*
+	 * @PrePersist public void prePresiscreat() { createAt = new Date(); }
+	 */
 	public Long getId() {
 		return id;
 	}
@@ -104,37 +125,9 @@ public class Productor implements Serializable {
 		this.contratoproductor = contratoproductor;
 	}
 	
-	public String getDireccion() {
-		return direccion;
-	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+    
 
-	public String getEncargado() {
-		return encargado;
-	}
-
-	public void setEncargado(String encargado) {
-		this.encargado = encargado;
-	}
-
-	public String getRazonsocial() {
-		return razonsocial;
-	}
-
-	public void setRazonsocial(String razonsocial) {
-		this.razonsocial = razonsocial;
-	}
-
-	public Date getCreateAt() {
-		return createAt;
-	}
-
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
-	}
 
 	/**
 	 * 

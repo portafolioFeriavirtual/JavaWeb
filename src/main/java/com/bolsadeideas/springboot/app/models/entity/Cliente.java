@@ -54,6 +54,8 @@ public class Cliente implements Serializable {
 	@JoinColumn(name = "estado_id")
 	 private Estado estados;
 
+	
+	
 	 
 	 
 	
@@ -68,9 +70,8 @@ public class Cliente implements Serializable {
 
 	@NotNull
 	@Column(name = "create_at")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createAt;
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private String createAt;
 
 
 
@@ -121,11 +122,11 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
-	public Date getCreateAt() {
+	public String getCreateAt() {
 		return createAt;
 	}
 
-	public void setCreateAt(Date createAt) {
+	public void setCreateAt(String createAt) {
 		this.createAt = createAt;
 	}
 
@@ -142,10 +143,6 @@ public class Cliente implements Serializable {
 
 	}
 	
-	public int addEstado(int estados_id) {
-		int bandera = 1;
-		return bandera;
-	}
 	
 
 	public Estado getEstados() {

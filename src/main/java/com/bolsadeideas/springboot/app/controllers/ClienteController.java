@@ -49,7 +49,7 @@ public class ClienteController {
 	public String ver(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash) {
 		Cliente cliente =  clienteService.findOne(id);
 		if (cliente == null) {
-			flash.addAttribute("Error", "El cliente no existe en la base de datos");
+			flash.addAttribute("error", "El cliente no existe en la base de datos");
 			return "redirect:/listar";
 		}
 		
@@ -92,7 +92,6 @@ public class ClienteController {
 	public String crear(Map<String, Object> model) {
 
 		Cliente cliente = new Cliente();
-		cliente.addEstado(1);
 		model.put("cliente", cliente);
 		 model.put("titulo", "Formulario de Contrato"); 
 		return "form";
@@ -125,6 +124,10 @@ public class ClienteController {
 			return "form";
 		}
 		String mensajeFlash = (cliente.getId() != null) ? "Contrato editado con éxito!" : "Contrato creado con éxito!";
+	
+		Estado estado = new Estado();
+		estado.setId((long) 1);
+		cliente.setEstados(estado);
 		clienteService.save(cliente);
 		status.setComplete();
 		flash.addFlashAttribute("success", mensajeFlash);

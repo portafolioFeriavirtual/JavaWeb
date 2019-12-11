@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<h4 class="card-title">
+						 <a class="btn btn-success btn-xs" th:href="@{'/producto/form/' + ${productor.id}}" th:text="'Crear Contrato'"></a> 
+				</h4>
+		
+			
+				<ul class="list-group">
+			 	    <li class="list-group-item" th:text="${productor.nombre_productor}"></li>
+					<li class="list-group-item" th:text="${productor.estado}"></li>
+					<li class="list-group-item" th:text="${productor.direccion}"></li>
+					<li class="list-group-item" th:text="${productor.encargado}"></li> 
+					<li class="list-group-item" th:text="${productor.razonsocial}"></li>
+                    
+				</ul>
+		 <div th:if="${#lists.isEmpty(productor.contratoproductor)}" class="alert alert-info my-4" th:text="'No ningun contrato para el productor ' + ${productor.nombre_productor}"></div>
+				<table th:if="${not #lists.isEmpty(productor.contratoproductor)}" class="table table-bordered table-spriped my-4" >
+
+					<thead class="thead-inverse">
+						<tr>
+							<th>N</th>
+							<th>Acuerdo</th>
+						
+							<th>fecha de inicio </th>
+							<th>fecha de termino </th>
+					
+						</tr>
+					</thead>
+					<tbody>
+					 	<tr th:each="contrato: ${productor.contratoproductor}">
+							<td th:text="${contrato.id}"></td>
+							<td th:text="${contrato.acuerdo}"></td>
+						    <td th:text="${contrato.inicio_contrato}"></td>
+						    <td th:text="${contrato.fin_contrato}"></td>
+					
+
+						</tr>
+
+
+					</tbody>
+
+
+
+
+
+				</table>
+
+
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

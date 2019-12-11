@@ -99,9 +99,19 @@ public class PedidoController {
 			
 			log.info("ID: " + itemId[i].toString() + " , cantidad : " + cantidad[i].toString());
 		}
+          
+      	Long idUsuario = pedido.cliente.getId();
+	    Cliente cliente = clienteService.findOne(idUsuario);   
+		Estado estado = new Estado();
+		estado.setId((long) 2);
+		cliente.setEstados(estado);
+		clienteService.save(cliente);
+          
+  
        clienteService.savePedido(pedido);
        status.setComplete();
-       flash.addAttribute("success", "Pedido Creado con exito");   
+     	flash.addFlashAttribute("success", "Pedido Creado con exito!");
+ 
     	 return "redirect:/ver/" + pedido.getCliente().getId();
      }
 

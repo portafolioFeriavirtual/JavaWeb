@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head   th:replace="layout/layout :: head"></head>
+<head th:replace="layout/layout :: head"></head>
 <header th:replace="layout/layout :: header"></header>
 <body>
 
@@ -14,7 +14,8 @@
 			<div class="card-body">
 
 				<h4 class="card-title">
-					<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/form}" class="btn btn-primary">Crear Contrato</a>
+					<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/form}"
+						class="btn btn-primary">Crear Contrato</a>
 				</h4>
 
 				<table class="table table-striped">
@@ -24,26 +25,76 @@
 							<th>Empresa</th>
 							<th>Presentante</th>
 							<th>Solicitud</th>
-						    <th>Correo</th>
+							<th>Correo</th>
 							<th>Fecha</th>
 							<th>Estado</th>
-							<th>Agregar Aporte</th>
+							<th>Accion</th>
+					         
+								
+				
+
 							<th sec:authorize="hasRole('ROLE_ADMIN')">editar</th>
 							<th sec:authorize="hasRole('ROLE_ADMIN')">eliminar</th>
-							
+
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="cliente: ${clientes}">
-							<td><a class="btn btn-primary btn-xs" th:href="@{/ver/} + ${cliente.id}" th:text="${cliente.id}"></a></td>
+							<td><a class="btn btn-primary btn-xs"
+								th:href="@{/ver/} + ${cliente.id}" th:text="${cliente.id}"></a></td>
 							<td th:text="${cliente.nombre}"></td>
 							<td th:text="${cliente.apellido}"></td>
 							<td th:text="${cliente.solicitud}"></td>
 							<td th:text="${cliente.email}"></td>
 							<td th:text="${cliente.createAt}"></td>
-							<td> <a class="btn btn-success btn-sm"  th:text="'Proceso'"></a></td>
-								<td> <a class="btn btn-primary btn-sm" th:href="@{'/pedido/form/' + ${cliente.id}}" th:text="'Crear Aporte'"></a></td>
-							<td><a sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-primary btn-sm"
+							<td><th:block th:switch="${cliente.estados.id}">
+									<div th:case="'1'">
+										<a class="btn btn-outline-success btn-sm" th:text="'Abierto'"></a>
+									</div>
+									<div th:case="'2'">
+										<a class="btn btn-outline-primary btn-sm" th:text="'Cerrado'"></a>
+									</div>
+									<div th:case="'3'">
+										<a class="btn btn-outline-secondary btn-sm"
+											th:text="'Pactado'"></a>
+									</div>
+									<div th:case="'4'">
+										<a class="btn btn-outline-light btn-sm" th:text="'Definido'"></a>
+									</div>
+									<div th:case="'5'">
+										<a class="btn btn-outline-info btn-sm" th:text="'En Bodega'"></a>
+									</div>
+									<div th:case="'6'">
+										<a class="btn btn-outline-warning btn-sm"
+											th:text="'En Camino'"></a>
+									</div>
+									<div th:case="'7'">
+										<a class="btn btn-success btn-sm" th:text="'Completado'"></a>
+									</div>
+									<div th:case="'8'">
+										<a class="btn btn-outline-danger btn-sm" th:text="'Rechazado'"></a>
+									</div>
+								</th:block></td>
+
+							<!-- <td><a class="btn btn-success btn-sm" th:text="'Abierto'"></a></td>
+
+
+							<!-- th:block rather than unneeded div -->
+							<td><th:block th:switch="${cliente.estados.id}">
+									<div th:case="'1'">
+										<a class="btn btn-primary btn-sm"
+											th:href="@{'/pedido/form/' + ${cliente.id}}">Crear Aporte</a>
+									</div>
+									<div th:case="'2'">
+										<a class="btn btn-primary btn-sm">Subastar</a>
+									</div>
+								</th:block></td>
+
+
+
+
+							<td><a sec:authorize="hasRole('ROLE_ADMIN')"
+								class="btn btn-primary btn-sm"
 								th:href="@{/form/} + ${cliente.id}" th:text="'editar'"></a></td>
 							<td><a sec:authorize="hasRole('ROLE_ADMIN')"
 								class="btn btn-danger btn-sm"

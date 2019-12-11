@@ -40,4 +40,10 @@ public class ProductorServiceImpl implements IProductorService {
 		
 	}
 
+	@Override
+	public Productor findOne(Long id) {
+		// TODO Auto-generated method stub
+		return productorDao.findById(id).orElse(null);
+	}
+
 }

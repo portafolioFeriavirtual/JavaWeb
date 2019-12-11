@@ -35,11 +35,24 @@ public class Subasta implements Serializable {
 	  
 	private int monto_transporte;
 	  
-	
+	@OneToOne(fetch = FetchType.LAZY)
+	private Subasta subasta;
 	
 	
 	 	
 	  
+	public Subasta getSubasta() {
+		return subasta;
+	}
+
+	public void setSubasta(Subasta subasta) {
+		this.subasta = subasta;
+	}
+
+	public void setMonto_transporte(int monto_transporte) {
+		this.monto_transporte = monto_transporte;
+	}
+
 	public Long getIdCliente() {
 		return idCliente;
 	}
